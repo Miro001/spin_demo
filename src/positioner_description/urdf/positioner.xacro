@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<robot name="positioner" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="materials.xacro" />
+<!--<xacro:include filename="$(find positioner_description)/urdf/positioner.trans" />
+<xacro:include filename="$(find positioner_description)/urdf/positioner.gazebo" />-->
+
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.0001382992340566185 -1.2746825006422278e-05 0.18862404205735872"/>
+    <mass value="20.28663310148078"/>
+    <inertia ixx="0.642664" ixy="1.6e-05" ixz="-0.000323" iyy="0.642499" iyz="-3.5e-05" izz="0.090451"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="file:///home/miro/Documents/ros/positioner_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="file:///home/miro/Documents/ros/positioner_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_1_v1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-6.718383771657898e-05 0.05679328746205571 -0.10034084157688616"/>
+    <mass value="41.79329048613838"/>
+    <inertia ixx="2.934824" ixy="-0.000138" ixz="-0.000936" iyy="2.742938" iyz="-0.540381" izz="0.434949"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.51"/>
+    <geometry>
+      <mesh filename="file:///home/miro/Documents/ros/positioner_description/meshes/link_1_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.51"/>
+    <geometry>
+      <mesh filename="file:///home/miro/Documents/ros/positioner_description/meshes/link_1_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_2_v1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-7.36518763520381e-05 -0.07393074030536362 -0.21084152728688138"/>
+    <mass value="46.589449648494856"/>
+    <inertia ixx="3.102916" ixy="-0.000156" ixz="-0.000947" iyy="2.896344" iyz="-0.549135" izz="0.459952"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.0 -0.1295 -0.638"/>
+    <geometry>
+      <mesh filename="file:///home/miro/Documents/ros/positioner_description/meshes/link_2_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.0 -0.1295 -0.638"/>
+    <geometry>
+      <mesh filename="file:///home/miro/Documents/ros/positioner_description/meshes/link_2_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev3" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.0 0.51"/>
+  <parent link="base_link"/>
+  <child link="link_1_v1_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Rev4" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.0 0.1295 0.128"/>
+  <parent link="link_1_v1_1"/>
+  <child link="link_2_v1_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+</robot>

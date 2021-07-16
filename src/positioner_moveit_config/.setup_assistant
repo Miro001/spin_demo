@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: positioner_description
+    relative_path: urdf/positioner.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/positioner.srdf
+  CONFIG:
+    author_name: Miroslav Jascur
+    author_email: miroslav.jascur@tuke.sk
+    generated_timestamp: 1626274067

@@ -1,0 +1,14 @@
+controller_list:
+  - name: fake_rotation_group_controller
+    type: $(arg execution_type)
+    joints:
+      - Rev3
+  - name: fake_positioner_group_controller
+    type: $(arg execution_type)
+    joints:
+      - Rev4
+initial:  # Define initial robot poses.
+#  - group: rotation_group
+#    pose: home
+
+  []
